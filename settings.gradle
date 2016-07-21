@@ -1,0 +1,4 @@
+rootProject.name = 'oklogger'
+include 'OkLogger'
+findProject(':OkLogger')?.name = 'oklogger'
+
