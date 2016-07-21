@@ -29,6 +29,11 @@ public class FileOutput implements Output {
       if (mFile.length() >= mMaxFileSize) {
         //todo prepare new file, and update mSink
         //todo clear old file if necessary
+
+        /*//todo rename files
+        for (int i=0; i<mMaxFiles; i++) {
+
+        }*/
       }
     }
     catch (final IOException e) {

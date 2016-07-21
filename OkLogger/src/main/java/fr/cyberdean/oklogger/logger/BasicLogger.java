@@ -13,9 +13,18 @@ public class BasicLogger implements Logger {
   }
 
   private void write(final Level level, final String msg) {
+    final StackTraceElement[] ste = new Exception().getStackTrace();
+    String className = "";
+    for (int i=0; i<ste.length;i++) {
+      if (!getClass().getName().equals(ste[i].getClassName())) {
+        className = ste[i].getClassName();
+        break;
+      }
+    }
+
     if (mConfiguration.getOutputs().isEmpty()) System.err.println("[" + getClass().getName() + "] No outputs configured !");
-    if (getLevel().intVal >= level.intVal) {
-      final String m = level.name() + " " + msg;
+    if (getLevel().intVal <= level.intVal) {
+      final String m = level.name() + " " + className + " " + msg;
       for (final Output out : mConfiguration.getOutputs()) {
         out.append(m);
       }
