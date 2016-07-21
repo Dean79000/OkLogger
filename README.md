@@ -10,9 +10,9 @@ Not now :/
 
 ## Usage ##
 
-`
+```
 final Configuration conf = new Configuration(Level.DEBUG);
 final BasicLogger logger = new BasicLogger(conf);
 
 logger.info("Hello world !");
-`
+```
