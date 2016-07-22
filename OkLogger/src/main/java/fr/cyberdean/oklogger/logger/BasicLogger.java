@@ -5,6 +5,13 @@ import fr.cyberdean.oklogger.Level;
 import fr.cyberdean.oklogger.Utils;
 import fr.cyberdean.oklogger.output.Output;
 
+/**
+ * Basic Logger, send messages to configured outputs, if level is greater or equal than configured level.
+ * Also define message pattern like "[Log level] [ClassName] [message]"
+ * @see Configuration
+ * @see Output
+ * @author Dean79000
+ */
 public class BasicLogger implements Logger {
   private Configuration mConfiguration;
 

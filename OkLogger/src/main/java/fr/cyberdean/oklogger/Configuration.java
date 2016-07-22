@@ -5,6 +5,9 @@ import fr.cyberdean.oklogger.output.Output;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author Dean79000
+ */
 public class Configuration {
   private Level mLevel;
   private Set<Output> mOutputs;

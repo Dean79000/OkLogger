@@ -2,6 +2,10 @@ package fr.cyberdean.oklogger.logger;
 
 import fr.cyberdean.oklogger.Level;
 
+/**
+ * Logging operations are done through this interface.
+ * @author Dean79000
+ */
 public interface Logger {
   /**
    * Gets the Level associated with the Logger.
