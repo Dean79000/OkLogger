@@ -6,5 +6,9 @@ package fr.cyberdean.oklogger.output;
  * @author Dean79000
  */
 public interface Output {
-  public void append(String str);
+  /**
+   * Append message to output
+   * @param str message to append
+   */
+  public void append(final String str);
 }

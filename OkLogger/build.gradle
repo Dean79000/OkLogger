@@ -53,6 +53,11 @@ test {
     int total = doc.select('#tests > .counter').text() as int
     int failed = doc.select('#failures > .counter').text() as int
 
+    /*File covFile = file("$buildDir/jacoco/reports/test/html/index.html")
+    def docCov = org.jsoup.Jsoup.parse(covFile, 'UTF-8')
+    int cov = docCov.select('#coveragetable > tfoot > tr > .ctr2').first().text().replaceAll("[^\\d.]", "") as int
+    String covColor = cov > 90 ? 'green' : (cov < 50 ? 'yellow' : 'red')*/
+
     def readme = file('../README.md')
     def badge = { String label, String text, String color ->
       "https://img.shields.io/badge/_${label}_-_${text}-${color}.png?style=flat"
@@ -65,7 +70,7 @@ test {
     readme.readLines().withIndex().collect { line, i ->
       switch (i) {
         case 0:
-          return "![jcenter](${badge('jcenter',v,'6688ff')}) &#x2003; ![jcenter](${badge(label,text,color)})"
+          return "![jcenter](${badge('jcenter',v,'6688ff')}) &#x2003; ![jcenter](${badge(label,text,color)})" //&#x2003; ![jcenter](${badge('Coveradge','${cov} %', covColor)})
         default: return line
       }
     }.join('\n').with { readme.text = it }

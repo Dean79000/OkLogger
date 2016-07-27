@@ -22,9 +22,9 @@ public class BasicLogger implements Logger {
   private void write(final Level level, final String msg) {
     final StackTraceElement[] ste = new Exception().getStackTrace();
     String className = "";
-    for (int i=0; i<ste.length;i++) {
-      if (!getClass().getName().equals(ste[i].getClassName())) {
-        className = ste[i].getClassName();
+    for (final StackTraceElement aSte : ste) {
+      if (!getClass().getName().equals(aSte.getClassName())) {
+        className = aSte.getClassName();
         break;
       }
     }
