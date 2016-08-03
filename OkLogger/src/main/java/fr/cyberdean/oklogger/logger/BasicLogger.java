@@ -5,9 +5,10 @@ import fr.cyberdean.oklogger.Level;
 import fr.cyberdean.oklogger.Utils;
 import fr.cyberdean.oklogger.output.Output;
 
+import java.sql.Timestamp;
+
 /**
  * Basic Logger, send messages to configured outputs, if level is greater or equal than configured level.
- * Also define message pattern like "[Log level] [ClassName] [message]"
  * @see Configuration
  * @see Output
  * @author Dean79000
@@ -21,7 +22,7 @@ public class BasicLogger implements Logger {
 
   private void write(final Level level, final String msg) {
     final StackTraceElement[] ste = new Exception().getStackTrace();
-    String className = "";
+    String className = "UnknownClass";
     for (final StackTraceElement aSte : ste) {
       if (!getClass().getName().equals(aSte.getClassName())) {
         className = aSte.getClassName();
@@ -31,7 +32,13 @@ public class BasicLogger implements Logger {
 
     if (mConfiguration.getOutputs().isEmpty()) System.err.println("[" + getClass().getName() + "] No outputs configured !");
     if (getLevel().intVal <= level.intVal) {
-      final String m = level.name() + " " + className + " " + msg;
+      final String m = mConfiguration.getMessagePattern()
+          .replace("{level}", level.name())
+          .replace("{thread}", Thread.currentThread().getName())
+          .replace("{timestamp}", String.valueOf(new Timestamp(System.currentTimeMillis()).getTime()))
+          .replace("{className}", className)
+          .replace("{message}", msg);
+
       for (final Output out : mConfiguration.getOutputs()) {
         out.append(m);
       }

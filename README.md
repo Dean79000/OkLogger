@@ -1,4 +1,4 @@
-![jcenter](https://img.shields.io/badge/_jcenter_-_1.0-SNAPSHOT-6688ff.png?style=flat) &#x2003; ![jcenter](https://img.shields.io/badge/_Tests_-_12/12-green.png?style=flat)
+![jcenter](https://img.shields.io/badge/_jcenter_-_1.0-SNAPSHOT-6688ff.png?style=flat) &#x2003; ![jcenter](https://img.shields.io/badge/_Tests_-_19/19-green.png?style=flat)
 
 # OkLogger #
 

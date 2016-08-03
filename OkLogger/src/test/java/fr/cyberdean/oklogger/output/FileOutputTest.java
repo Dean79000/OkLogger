@@ -68,7 +68,7 @@ public class FileOutputTest {
     assertEquals(100, fo.getMaxFileSize());
     assertTrue(f.exists());
 
-    final Configuration conf = new Configuration(Level.DEBUG);
+    final Configuration conf = new Configuration(Level.DEBUG, "{level} {className} {message}");
     conf.addOutput(fo);
     final BasicLogger logger = new BasicLogger(conf);
 

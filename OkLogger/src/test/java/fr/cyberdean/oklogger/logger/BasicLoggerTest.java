@@ -31,7 +31,7 @@ public class BasicLoggerTest {
 
     @Test
     public void debug(){
-        final Configuration conf = new Configuration(Level.DEBUG);
+        final Configuration conf = new Configuration(Level.DEBUG, "{level} {className} {message}");
         conf.addOutput(output);
         final Logger log = new BasicLogger(conf);
 
@@ -49,7 +49,7 @@ public class BasicLoggerTest {
 
     @Test
     public void info(){
-        final Configuration conf = new Configuration(Level.INFO);
+        final Configuration conf = new Configuration(Level.INFO, "{level} {className} {message}");
         conf.addOutput(output);
         final Logger log = new BasicLogger(conf);
         log.debug("hello");
@@ -66,7 +66,7 @@ public class BasicLoggerTest {
 
     @Test
     public void warn(){
-        final Configuration conf = new Configuration(Level.WARN);
+        final Configuration conf = new Configuration(Level.WARN, "{level} {className} {message}");
         conf.addOutput(output);
         final Logger log = new BasicLogger(conf);
         log.debug("hello");
@@ -83,7 +83,7 @@ public class BasicLoggerTest {
 
     @Test
     public void error(){
-        final Configuration conf = new Configuration(Level.ERROR);
+        final Configuration conf = new Configuration(Level.ERROR, "{level} {className} {message}");
         conf.addOutput(output);
         final Logger log = new BasicLogger(conf);
         log.debug("hello");
@@ -100,7 +100,7 @@ public class BasicLoggerTest {
 
     @Test
     public void fatal(){
-        final Configuration conf = new Configuration(Level.FATAL);
+        final Configuration conf = new Configuration(Level.FATAL, "{level} {className} {message}");
         conf.addOutput(output);
         final Logger log = new BasicLogger(conf);
         log.debug("hello");
