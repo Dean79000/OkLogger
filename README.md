@@ -44,3 +44,9 @@ BasicLogger/FileOutput is Thread-Safe, you ~~can~~ should use same instance acro
 
 In case of number of files, why type byte is used instead of int ?<br/>
 *If you need more than 127 differents files, consider raise maximum file size or explain me in what purpose. Furthermore it consume less memory.*
+
+## Licence ##
+
+Apache 2.0, see LICENCE file.
+
+Simple explanation : https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)
